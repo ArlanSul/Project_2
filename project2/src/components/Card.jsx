@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Card = () => {
+const Card = ({ card, isFlipped, handleClick }) => {
   return (
     <div className={`card-container ${isFlipped ? 'flipped' : ''}`} onClick={handleClick}>
       <div className="card-content">
