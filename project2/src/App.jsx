@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useState } from 'react';
+import { cardSet } from './cards';
 import Card from './components/Card';
-import './App.css'
+import './App.css';
 
 function App() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -21,17 +22,23 @@ function App() {
   };
 
   return (
-  <div className="App">
-    <div className="header">
+    <div className="App">
+      <div className="header">
         <h1>Ultimate Trivia!</h1>
         <p>Test your general knowledge with these flashcards.</p>
-        <h5>Total Cards: </h5>
+        <h5>Total Cards: {cardSet.length}</h5>
       </div>
 
-      <button className="next-btn">
+      <Card 
+        card={cardSet[currentIndex]} 
+        isFlipped={isFlipped} 
+        handleClick={toggleFlip} 
+      />
+
+      <button className="next-btn" onClick={handleNextCard}>
         Next Card ➔
       </button>
-  </div>  );
+    </div>);
 }
 
 export default App
